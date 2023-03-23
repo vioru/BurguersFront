@@ -19,29 +19,29 @@ export default {
       saludo: '...Nada todavía',
     };
   },
-  methods: {
-    getWelcomeMessage() {
-      // Acá tienes un ejemplo de llamada http a la api
-      // puedes encontrar documentación para usar el cliente http de vue aquí:
-      // https://github.com/pagekit/vue-resource
-      this.$http.get('https://prueba-hamburguesas.herokuapp.com/test')
-        .then((response) => { this.saludo = response.data; }, err => console.log(err));
-    },
-  },
-  created() {
-    console.log('componente welcome creado!, llamando a api');
-    this.getWelcomeMessage();
-  },
+  // methods: {
+  //   getWelcomeMessage() {
+  //     // Acá tienes un ejemplo de llamada http a la api
+  //     // puedes encontrar documentación para usar el cliente http de vue aquí:
+  //     // https://github.com/pagekit/vue-resource
+  //     this.$http.get('https://prueba-hamburguesas.herokuapp.com/test')
+  //       .then((response) => { this.saludo = response.data; }, err => console.log(err));
+  //   },
+  // },
+  // created() {
+  //   console.log('componente welcome creado!, llamando a api');
+  //   this.getWelcomeMessage();
+  // },
 }
 </script>
 
 <style>
-.welcome-component {
+/* .welcome-component {
   padding: 10px;
   border: black 2px solid;
 }
 .hi {
   font-weight: bold;
   font-size: 1.5rem;
-}
+} */
 </style>
