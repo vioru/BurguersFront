@@ -1,12 +1,13 @@
 <template lang="html">
   <div class="welcome-component">
-    <h2>Ejemplo y bienvenida</h2>
+    <h2>Bienvenido a Eleva Burguers </h2>
     <p>Con este componente puedes ver cómo se pasa {{ algo }} de un componente a otro
-       a través de los props. </p>
+        a través de los props. </p>
     <p>Y además hace una llamada a la api al crearse, que debería responderte con el
       saludo de bienvenida:</p>
     <p class="hi">{{ saludo }}</p>
   </div>
+
 </template>
 
 <script>
