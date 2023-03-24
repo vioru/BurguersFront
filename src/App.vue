@@ -45,4 +45,11 @@
 .btn-menu{
     box-shadow: 0px 5px  rgba(0, 0, 0, 0.89);
 }
+
+.boton{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
 </style>

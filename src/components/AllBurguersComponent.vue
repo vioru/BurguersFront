@@ -104,11 +104,6 @@ export default {
 </script>
 
 <style>
-.boton{
-  display: flex;
-  justify-content: end;
-  align-items: end;
-}
 
 
 
