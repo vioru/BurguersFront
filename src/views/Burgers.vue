@@ -1,14 +1,9 @@
 <template>
   <div>
     <NavBurguersComponent/>
-      <h1 class="title">
-        MENU
-      </h1>
-      <div  class="container">
-          <div class="columns is-desktop is-mobile is-tablet is-multiline is-centered " >
-            <AllBurguersComponent class="my-5"/>
-          </div>
-      </div>
+    <AllBurguersComponent />
+    
+
     
   </div>
 </template>
@@ -23,22 +18,12 @@ export default {
   name: "Burgers",
   components: {
     AllBurguersComponent,
-    NavBurguersComponent
-},
-  data() {
-    return {
-      // Details: {},
-      // Burguers: [],
-      // showDetails: false,
-      // id:"",
-      // isActive:false,
-    };
-  }
-  
-
+    NavBurguersComponent,
+}
 };
 </script>
 
 <style>
+
 
 </style>

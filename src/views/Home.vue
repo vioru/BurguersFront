@@ -1,31 +1,37 @@
 <template>
   <div class="home">
-    <NavBurguersComponent/>
-    <img alt="Vue logo" src="../assets/logo.png">
-    <WelcomeComponent :algo="unaVariable"/>
-    <SliderHomeComponent/>
-    
+    <div class="is-desktop is-mobile is-tablet is-multiline ">
+    <NavBurguersComponent  />
+    </div>
+    <HomeMenuComponent />
+    <!-- <WelcomeComponent :algo="unaVariable"/> -->
   </div>
   
 </template>
 
 <script>
 // @ is an alias to /src
-import WelcomeComponent from '@/components/WelcomeComponent.vue'
+// import WelcomeComponent from '@/components/WelcomeComponent.vue'
 import NavBurguersComponent from '../components/NavBurguersComponent.vue';
-import SliderHomeComponent from '../components/SliderHomeComponent.vue';
+import HomeMenuComponent from '../components/HomeMenuComponent.vue';
 
 export default {
   name: 'Home',
   components: {
-    WelcomeComponent,
-    SliderHomeComponent,
+    // WelcomeComponent,
+    HomeMenuComponent,
     NavBurguersComponent
 },
   data() {
     return {
-      unaVariable: 'una cosa cualquiera'
+      unaVariable: 'una cosa cualquiera',
+      HomeActivated:false,
+
     }
+
+
   }
+  ,
+
 }
 </script>

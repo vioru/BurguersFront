@@ -7,19 +7,12 @@
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
-            <div id="nav" >
-                <router-link to="/" class="mx-5 title is-4">Home</router-link>
-
-                <router-link to="/hamburguesas" class="mx-5 title is-4">Hamburguesas</router-link>
-            </div>
-    <router-view/>
-
         <div class="navbar-end">
-        <div class="navbar-item">
-            <div class="buttons">
-                <NewBurguerComponent/>
+            <div class="navbar-item">
+                <div class="buttons" id="nav">
+                    <router-link to="/" class="mx-5 title is-4 " id="nav">Home </router-link>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </nav>
@@ -28,16 +21,21 @@
 </template>
 
 <script>
-import NewBurguerComponent from './NewBurguerComponent.vue';
+// import NewBurguerComponent from './NewBurguerComponent.vue';
 
 
 
 export default{
     name: "NavBurguersComponent",
+    props:['ShowHome'],
     data() {
-        return {};
+        return {
+        };
     },
-    components: { NewBurguerComponent }
+    methods:{
+
+    }
+
 }
 
 </script>

@@ -1,12 +1,14 @@
 <template>
     <div>
         <div  class="container">
+            <NewBurguerComponent class="boton" @reload="getBurguersData"/>
+
+            <h1 class="title"> MENU </h1>
             <div class="columns is-desktop is-mobile is-tablet is-multiline is-centered " >
                 <div class="column is-12-mobile is-4-desktop is-6-tablet" v-for="burguer of Burguers" v-bind:key="burguer.id">
                 <div class="card">
                     <div class="card-header d-flex justify-content-center">
-                    <img alt="Vue logo" :src="burguer.id/2 ? 'https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a8.png':
-                    'https://www.pngfind.com/pngs/m/426-4269881_hamburguesa-png-transparent-png.png' " class="image is-256x256 ">
+                    <img alt="foto producto" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a8.png" class="image is-256x256">
                     </div>
                     <div class="card-content">
                     <h4 class="title is-size-4">{{ burguer.nombre.toUpperCase() }}</h4>
@@ -41,13 +43,14 @@
 
 <script>
 import ViewDetailsComponent from "../components/ViewDetailsComponent.vue";
+import NewBurguerComponent from "./NewBurguerComponent.vue";
 
 
 export default {
     name: "AllBurgersComponent",
     components: {
     ViewDetailsComponent,
-
+    NewBurguerComponent
 },
 
     data() {
@@ -86,6 +89,9 @@ export default {
         closeModal(){
         this.isActive = false
         },
+        saludo(){
+            console.log("hola me llamaste")
+        }
         
     },
     created() {
@@ -98,6 +104,11 @@ export default {
 </script>
 
 <style>
+.boton{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
 
 
 

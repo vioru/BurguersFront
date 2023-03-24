@@ -4,7 +4,6 @@
         <button class="button is-success is-rounded is-responsive is-medium  " v-on:click="OpenModal()">   
                 Crear Nueva Hamburguesa
         </button>
-
         <div :class="isActive ? 'modal is-active ':'modal' " >
                 <div class="modal-background ">
                     <div class="modal-card my-5 ">
@@ -82,8 +81,9 @@ export default{
             this.caloriasError = "";
         },
         CreateBurguer() {
-            console.log(this.form.nombre)
-            if(this.form.ingredientes >=2){
+            
+            console.log(this.form.ingredientes.length)
+            if(this.form.ingredientes.length >1){
                 this.form.ingredientes= this.form.ingredientes.split(",");}
             else{this.form.ingredientes = ""}
             
@@ -91,11 +91,22 @@ export default{
             (response) => {
             console.log(response.data);
             this.isActive = false;
+            this.$emit('reload')
+            this.form.nombre = "";
+            this.form.ingredientes = [""];
+            this.form.calorias = "";
             },
             (err) =>{ console.log(err)
-            this.nombreError = "debes ingresar un nombre";
-            this.ingredientesError = "Debes ingresar al menos un ingrediente";
-            this.caloriasError = "Debes ingresar las calorias";
+            if(err.response.data.nombre){
+                this.nombreError = err.response.data.nombre[0];
+            }
+            if(err.response.data.ingredientes){
+            this.ingredientesError = err.response.data.ingredientes[0];
+            }
+            if(err.response.data.calorias){
+                this.caloriasError = err.response.data.calorias[0];
+            }
+            
         }
         );
         },
@@ -108,11 +119,10 @@ export default{
         },
         guardar(){
             console.log(this.form2);
-        }
+        },
+
     },
-    created() {
-        this.CreateBurguer();
-    },
+
     components: {  }
 }
 
