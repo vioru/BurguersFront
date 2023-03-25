@@ -36,7 +36,7 @@
                             <template v-if="filtereds" > 
                                 <p>¿Estas Seguro que deseas borrar?</p>
                                 <button  class="button is-danger m-5" id="btncancle" 
-                            v-on:click="DeleteBurguer()"> Si Borrar</button>
+                            v-on:click="DeleteBurguer()"> Borrar</button>
                             
                             </template>
                             <div v-else>
