@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex" >
-        <img alt="Vue logo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a8.png" class="image is-128x128  ">
+        <img alt="Vue logo" src="https://bakeitwithlove.com/wp-content/uploads/2022/01/what-to-serve-with-burgers-sq.jpg" class="image is-128x128  ">
         <div>
             <h1 class="text-center is-size-2 is-uppercase" >
             {{oneBurguer.nombre }}

@@ -7,7 +7,7 @@
                 <div class="column is-12-mobile is-4-desktop is-6-tablet" v-for="burguer of Burguers" v-bind:key="burguer.id">
                 <div class="card">
                     <div class="card-header d-flex justify-content-center">
-                    <img alt="foto producto" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c1a8.png" class="image is-256x256">
+                    <img alt="foto producto" src="https://bakeitwithlove.com/wp-content/uploads/2022/01/what-to-serve-with-burgers-sq.jpg" class="image is-256x256">
                     </div>
                     <div class="card-content">
                     <h4 class="title is-size-4">{{ burguer.nombre.toUpperCase() }}</h4>
