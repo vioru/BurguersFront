@@ -2,7 +2,6 @@
     <div>
         <div  class="container">
             <NewBurguerComponent class="boton" @reload="getBurguersData"/>
-
             <h1 class="title"> MENU </h1>
             <div class="columns is-desktop is-mobile is-tablet is-multiline is-centered " >
                 <div class="column is-12-mobile is-4-desktop is-6-tablet" v-for="burguer of Burguers" v-bind:key="burguer.id">
@@ -12,10 +11,16 @@
                     </div>
                     <div class="card-content">
                     <h4 class="title is-size-4">{{ burguer.nombre.toUpperCase() }}</h4>
+                    <button class="button is-danger is-rounded is-responsive  align-self-center "
+                    v-on:click="FilterId(burguer.id)" id="openModal">
+                        Borrar
+                    </button> 
+                    
                     <button class="button is-success is-rounded is-responsive  align-self-center "
                     v-on:click="sendId(burguer.id)" id="openModal">
                         Ver Detalles
                     </button>
+
                     </div>
                 </div>
             </div>
@@ -28,15 +33,25 @@
                             ></button>
                         </header>
                         <section class="modal-card-body text-center">
-                            <ViewDetailsComponent :oneBurguer="Details" class="is-justify-content-center is-align-items-center"/>
+                            <template v-if="filtereds" > 
+                                <p>¿Estas Seguro que deseas borrar?</p>
+                                <button  class="button is-danger m-5" id="btncancle" 
+                            v-on:click="DeleteBurguer()"> Si Borrar</button>
+                            
+                            </template>
+                            <div v-else>
+                                <ViewDetailsComponent  :oneBurguer="Details" class="is-justify-content-center is-align-items-center" />
+                            </div>
+                            
                         </section>
-                        <footer class="modal-card-foot  is-justify-content-center">
-                            <button class="button" id="btncancle" 
+                        <footer  class="modal-card-foot  is-justify-content-center">
+                            <button  class="button" id="btncancle" 
                             v-on:click="closeModal()">Cerrar</button>
                         </footer>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
@@ -55,6 +70,7 @@ export default {
 
     data() {
         return {
+        filtereds:[],
         Details: {},
         Burguers: [],
         showDetails: false,
@@ -70,8 +86,7 @@ export default {
         this.$http.get("https://hamburguesas-back.elevadev.cl/burger/"+this.id).then(
             (response) => {
             this.Details = response.data;
-            this.isActive = true
-            console.log(this.isActive);
+            this.openModal();
             },
             (err) => console.log(err)
         );
@@ -80,17 +95,27 @@ export default {
         this.$http.get("https://hamburguesas-back.elevadev.cl/burger/").then(
             (response) => {
             this.Burguers = response.data;
-            
-
             },
             (err) => console.log(err)
         );
         },
         closeModal(){
         this.isActive = false
+        this.filtereds = []
         },
-        saludo(){
-            console.log("hola me llamaste")
+        openModal(){
+            this.isActive = true
+            this.filtereds = ""
+        },
+        FilterId(BurguerId){
+            this.sendId();
+            console.log("soly el id",BurguerId);
+            this.filtereds = BurguerId;
+            this.isActive = true
+        },
+        DeleteBurguer(){
+            this.Burguers = this.Burguers.filter(word => word.id != this.filtereds);
+            this.isActive = false
         }
         
     },
@@ -104,8 +129,4 @@ export default {
 </script>
 
 <style>
-
-
-
-
 </style>
